@@ -13,7 +13,7 @@
 import Basic
 import Foundation
 import SwiftFormat
-import Utility
+import SPMUtility
 
 /// Collects the command line options that were passed to `swift-format`.
 struct CommandLineOptions {
@@ -135,7 +135,7 @@ func processArguments(commandName: String, _ arguments: [String]) -> CommandLine
   var opts = CommandLineOptions()
   do {
     let args = try parser.parse(arguments)
-    binder.fill(args, into: &opts)
+    try binder.fill(parseResult: args, into: &opts)
 
     if opts.mode.requiresFiles && opts.paths.isEmpty {
       throw ArgumentParserError.expectedArguments(parser, ["filenames or paths"])

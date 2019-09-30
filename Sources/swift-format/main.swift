@@ -15,7 +15,7 @@ import Foundation
 import SwiftFormat
 import SwiftFormatConfiguration
 import SwiftFormatCore
-import Utility
+import SPMUtility
 
 fileprivate func main(_ arguments: [String]) -> Int32 {
   let url = URL(fileURLWithPath: arguments.first!)
@@ -71,7 +71,7 @@ private func loadConfiguration(
 private func findConfigurationFile(forSwiftFile: String) -> String? {
   let cwd = FileManager.default.currentDirectoryPath
   var path = URL(
-    fileURLWithPath: AbsolutePath(forSwiftFile, relativeTo: AbsolutePath(cwd)).asString)
+    fileURLWithPath: AbsolutePath(forSwiftFile, relativeTo: AbsolutePath(cwd)).pathString)
   let configFilename = ".swift-format"
 
   repeat {

@@ -10,7 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Utility
+import SPMUtility
 
 /// The mode in which the `swift-format` tool should run.
 enum ToolMode: String, Codable, ArgumentKind {
